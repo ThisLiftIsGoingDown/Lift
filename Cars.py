@@ -7,4 +7,14 @@ class Car():
         self.pos = pos
         self.speed = speed
         self.carnr = carnr
-    def get_
+    def erase_floors(self):
+        g =[]
+        self.floors = g
+
+    def append_floor(self,mode,floornr):
+        d = ["all"]
+        if mode == "all":
+            self.erase_floors()
+            self.floors = d
+        else:
+            self.floors.append(floornr)

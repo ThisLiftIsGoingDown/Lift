@@ -47,7 +47,6 @@ def ConfigInit():
     print(f"..")
     time.sleep(0.5)
     print(f"...OK!")
-    ConfigCars()
     zeh = open("qwe.uma", "w")
     zeh.write("Completed=1")            # completed set to 1 to know setup completed
     zeh.close()
@@ -91,21 +90,26 @@ def ConfigCars(levels):
     carsc = open("CarConfig.uma" , "w")
     NrOCars = input()
     NrOCars = int(NrOCars)
-    carsc.write(f"Number of Cars={NrOCars}")
+    carsc.write(f"Number of Cars={NrOCars}\n")
+    level = ["all"]
     cars = []
     calls = []
     for i in range(0,NrOCars):
-        cars.append(Car(0,"all", calls, 0.0 , i))
+        cars.append(Car(0,level, calls, 0.0 , i))
         print(f"does the car nr. {i} stop at all the floors?(y/n)")
         temp = input()
         temp.lower()
         if temp != "y":
+            cars[i].erase_floors()
             for m in range(0, len(levels)):
                 print(f"does the car nr. {i} stop at floor {m}")
                 temp1 = input()
                 temp1.lower()
-                #if temp1 == "y":  working on this
-
-
-
-
+                if temp1 == "y":
+                    cars[i].append_floor("exclusive",True)
+                else: cars[i].append_floor("exclusive", False)
+        else:
+            carsc.write(f"Car={i}=all\n")
+            continue
+        carsc.write(f"car{i}={cars[i].floors}\n")
+    return cars

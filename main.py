@@ -15,6 +15,8 @@ callHeight = 0
 onstup = start.onstartup()
 if onstup == False:
     Levit = start.ConfigInit()
+    cars = start.ConfigCars(Levit)
+    print (cars[0].floors)
 else:
     Levit = start.readConfig()
 levels = start.initlevels(Levit)
