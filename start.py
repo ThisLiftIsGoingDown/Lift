@@ -90,7 +90,7 @@ def ConfigCars(levels):
     carsc = open("CarConfig.uma" , "w")
     NrOCars = input()
     NrOCars = int(NrOCars)
-    carsc.write(f"Number of Cars={NrOCars}\n")
+    carsc.write(f"Number of Cars={NrOCars}\n")          #configure cars
     level = ["all"]
     cars = []
     calls = []
@@ -112,4 +112,25 @@ def ConfigCars(levels):
             carsc.write(f"Car={i}=all\n")
             continue
         carsc.write(f"car{i}={cars[i].floors}\n")
+    carsc.close()
     return cars
+
+def initCars(levels):
+    cars =[]
+    calls = []
+
+    cr = open("CarConfig.uma", "r")
+    numberOCars =cr.readline(-1)
+    numberOCars.split("=")
+    numberOCars = int(numberOCars[1])
+    for i in range(0,numberOCars):
+        currentCar = cr.readline(-1)
+        currentCar = currentCar.split("=")
+        if currentCar[2] == "all":
+            for i in range (0, len(levels)):# working on this
+
+
+
+
+
+        cars.append(Car(0, level, calls, 0.0, i))
