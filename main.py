@@ -19,6 +19,8 @@ if onstup == False:
     print (cars[0].floors)
 else:
     Levit = start.readConfig()
+    cars =start.initCars(Levit)
+    print(cars[0].floors)
 levels = start.initlevels(Levit)
 while True:
     t1 = time.time()
