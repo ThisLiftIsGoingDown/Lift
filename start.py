@@ -3,7 +3,7 @@ from Levels import Level
 
 def onstartup():
     initCompleted = open("qwe.uma", "r")
-    tmp = initCompleted.read(-1)                # is lift initialsied
+    tmp = initCompleted.read(-1)                # is lift initialsied?
     tmp1 = tmp.split("=")
     if tmp1[1] == "0":
         initCompleted.close
@@ -18,7 +18,7 @@ def ConfigInit():
     print("Welcome to the Lift Setup Assistant", "\n" + "Please Enter your number of Levels: ")
     numberOfLevels = input()
     numberOfLevels = int(numberOfLevels)
-    levels = list()                                         # initialize levels .uma
+    levels = list()                                         # initialize levels .uma, and setup floors
     levelHeightTemp = 0
     config.write(f"Number of Levels={numberOfLevels}\n")
     for i in range(0, numberOfLevels):
@@ -31,7 +31,7 @@ def ConfigInit():
     fire = open("FireFl.uma", "w")
     print(f"Please Enter your Fire Level (must be in range from 0 to {len(levels) - 1})")
     while True:
-        firetemp = input()
+        firetemp = input()                      #Configuring Fire level
         firetemp = int(firetemp)
         if firetemp < 0 or firetemp > len(levels):
             print(f"Please enter a valid Fire level (must be in range from 0 to {len(levels) - 1})")
@@ -43,7 +43,7 @@ def ConfigInit():
     print(f"Starting Car Setup assistant")
     ConfigCars()
     zeh = open("qwe.uma", "w")
-    zeh.write("Completed=1")
+    zeh.write("Completed=1")            # completed set to 1 to know setup completed
     zeh.close()
     return levels
 
@@ -67,7 +67,6 @@ def readConfig():
 
 
 def initlevels(lev):
-    # testing motherfucking git
     levelcount = len(lev)         #Level obj erstellen und level height eingeben
     levels = []
     fre = open("FireFl.uma" , "r")
