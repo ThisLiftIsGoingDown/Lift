@@ -7,7 +7,7 @@ import start
 currentPosition = 0
 currentSpeed = 1
 spd = 1
-callHeight=0
+callHeight = 0
 
 
 

@@ -93,8 +93,9 @@ def ConfigCars(levels):
     NrOCars = int(NrOCars)
     carsc.write(f"Number of Cars={NrOCars}")
     cars = []
+    calls = []
     for i in range(0,NrOCars):
-        cars.append(Car(0,"all",[],))
+        cars.append(Car(0,"all", calls, 0.0 , i))
 
 
 
