@@ -67,6 +67,7 @@ def readConfig():
 
 
 def initlevels(lev):
+    # testing motherfucking git
     levelcount = len(lev)         #Level obj erstellen und level height eingeben
     levels = []
     fre = open("FireFl.uma" , "r")
