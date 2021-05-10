@@ -96,6 +96,15 @@ def ConfigCars(levels):
     calls = []
     for i in range(0,NrOCars):
         cars.append(Car(0,"all", calls, 0.0 , i))
+        print(f"does the car nr. {i} stop at all the floors?(y/n)")
+        temp = input()
+        temp.lower()
+        if temp != "y":
+            for m in range(0, len(levels)):
+                print(f"does the car nr. {i} stop at floor {m}")
+                temp1 = input()
+                temp1.lower()
+                #if temp1 == "y":  working on this
 
 
 
