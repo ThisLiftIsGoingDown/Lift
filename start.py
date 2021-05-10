@@ -1,6 +1,6 @@
 from Levels import Level
-
-
+import time
+from Cars import Car
 def onstartup():
     initCompleted = open("qwe.uma", "r")
     tmp = initCompleted.read(-1)                # is lift initialsied?
@@ -40,7 +40,13 @@ def ConfigInit():
     fire.write(f"Fire Floor is:{firetemp}")
     print(f"The Fire Floor is now set to {firetemp}")
     fire.close
-    print(f"Starting Car Setup assistant")
+    print(f"Starting Car Setup assistant ...")
+    time.sleep(0.2)
+    print(f".")
+    time.sleep(0.2)
+    print(f"..")
+    time.sleep(0.5)
+    print(f"...OK!")
     ConfigCars()
     zeh = open("qwe.uma", "w")
     zeh.write("Completed=1")            # completed set to 1 to know setup completed
@@ -80,6 +86,16 @@ def initlevels(lev):
             levels[i].set_Firefl()
     return levels
 
-def ConfigCars():
-    while True:
-        print(f"")
+def ConfigCars(levels):
+    print(f"please enter the number of cars")
+    carsc = open("CarConfig.uma" , "w")
+    NrOCars = input()
+    NrOCars = int(NrOCars)
+    carsc.write(f"Number of Cars={NrOCars}")
+    cars = []
+    for i in range(0,NrOCars):
+        cars.append(Car(0,"all",[],))
+
+
+
+
