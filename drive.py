@@ -9,5 +9,5 @@ def sigmoid (x):
 
 def leveling(currentpositionl, callheight):
     distanceToFloor = callheight - currentpositionl
-    levelSpd = sigmoid(distanceToFloor/400)
+    levelSpd = sigmoid(distanceToFloor/400)    #Calculating optimal speed for leveling
     return levelSpd * spd
