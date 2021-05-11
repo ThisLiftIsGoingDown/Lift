@@ -11,10 +11,10 @@ class Car():
         g =[]
         self.floors = g
 
-    def append_floor(self,mode,floornr):
+    def append_floor(self,mode,floormd):
         d = ["all"]
         if mode == "all":
             self.erase_floors()
             self.floors = d
         else:
-            self.floors.append(floornr)
+            self.floors.append(floormd)

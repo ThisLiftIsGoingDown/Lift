@@ -90,7 +90,7 @@ def ConfigCars(levels):
     carsc = open("CarConfig.uma" , "w")
     NrOCars = input()
     NrOCars = int(NrOCars)
-    carsc.write(f"Number of Cars={NrOCars}\n")          #configure cars
+    carsc.write(f"{NrOCars}")          #configure cars
     level = ["all"]
     cars = []
     calls = []
@@ -109,9 +109,9 @@ def ConfigCars(levels):
                     cars[i].append_floor("exclusive",True)
                 else: cars[i].append_floor("exclusive", False)
         else:
-            carsc.write(f"Car={i}=all\n")
+            carsc.write(f"\nall")
             continue
-        carsc.write(f"car{i}={cars[i].floors}\n")
+        carsc.write(f"\n{cars[i].floors}")
     carsc.close()
     return cars
 
