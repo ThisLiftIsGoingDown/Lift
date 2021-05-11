@@ -1,9 +1,10 @@
 from Levels import Level
 import time
 from Cars import Car
+"""Collection of all initialisation functions to setup and read data from config files """
 def onstartup():
     initCompleted = open("qwe.uma", "r")
-    tmp = initCompleted.read(-1)                # is lift initialsied?
+    tmp = initCompleted.read(-1)                # Check if setup has beeen completed, if yes returns  True
     tmp1 = tmp.split("=")
     if tmp1[1] == "0":
         initCompleted.close
@@ -18,9 +19,9 @@ def ConfigInit():
     print("Welcome to the Lift Setup Assistant", "\n" + "Please Enter your number of Levels: ")
     numberOfLevels = input()
     numberOfLevels = int(numberOfLevels)
-    levels = list()                                         # initialize levels .uma, and setup floors
-    levelHeightTemp = 0
-    config.write(f"Number of Levels={numberOfLevels}\n")
+    levels = list()                                         #Setup the config files by the means of console
+    levelHeightTemp = 0                                     #Writes data to config according to config syntax
+    config.write(f"Number of Levels={numberOfLevels}\n")    #also saves config stuff to objects
     for i in range(0, numberOfLevels):
         print(f"Type the height of Level {i}: \n")
         levelHeightTemp = input()
@@ -43,7 +44,7 @@ def ConfigInit():
     print(f"Starting Car Setup assistant ...")
     time.sleep(0.2)
     print(f".")
-    time.sleep(0.2)
+    time.sleep(0.2)         #Silly wait animation just becaus of randomness
     print(f"..")
     time.sleep(0.5)
     print(f"...OK!")
@@ -58,7 +59,7 @@ def readConfig():
     levels = list()
     Lines = config.readlines(-1)
     lineinit = Lines[0]
-    lineinit = lineinit.split("=")  # read data from level.uma
+    lineinit = lineinit.split("=")  # read data from level.uma and put it into level objects
     lineinit = lineinit[1]
     lineinit = int(lineinit)
     for m in range(1, lineinit + 1):
@@ -72,7 +73,7 @@ def readConfig():
 
 
 def initlevels(lev):
-    levelcount = len(lev)         #Level obj erstellen und level height eingeben
+    levelcount = len(lev)         #Create level obj initialise and give height
     levels = []
     fre = open("FireFl.uma" , "r")
     firefl = fre.readline(-1)
@@ -90,7 +91,7 @@ def ConfigCars(levels):
     carsc = open("CarConfig.uma" , "w")
     NrOCars = input()
     NrOCars = int(NrOCars)
-    carsc.write(f"{NrOCars}")          #configure cars
+    carsc.write(f"{NrOCars}")          #Configures car properties into object and config file
     level = ["all"]
     cars = []
     calls = []
@@ -118,7 +119,7 @@ def ConfigCars(levels):
 def initCars(levels):
     cars =[]
     cr = open("CarConfig.uma", "r")
-    numberOCars =int(cr.readline(-1))
+    numberOCars =int(cr.readline(-1))               #Reads data from config
     for i in range(0,numberOCars):
         calls = []
         currentCar = cr.readline(-1)
