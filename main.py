@@ -16,7 +16,7 @@ onstup = start.onstartup()
 if onstup == False:
     Levit = start.ConfigInit()
     cars = start.ConfigCars(Levit)
-    print (cars[0].floors)
+    print (cars)
 else:
     Levit = start.readConfig()
     cars =start.initCars(Levit)

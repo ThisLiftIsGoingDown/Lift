@@ -117,25 +117,20 @@ def ConfigCars(levels):
 
 def initCars(levels):
     cars =[]
-    calls = []
-    levelall = ["all"]
-    level = []
     cr = open("CarConfig.uma", "r")
-    numberOCars =cr.readline(-1)
-    numberOCars = numberOCars.split("=")
-    numberOCars = int(numberOCars[1])
+    numberOCars =int(cr.readline(-1))
     for i in range(0,numberOCars):
+        calls = []
         currentCar = cr.readline(-1)
-        currentCar = currentCar.split("=")
-        if currentCar[1] == "all":
-            cars.append(Car(0, levelall, calls, 0.0, i))
-            continue
+        if currentCar == "all":
+            cars.append(Car(0, ["all"], calls, 0.0, i))
         else:
-            currentCar = currentCar[1]
-            currentCar = currentCar[1:len(currentCar) - 2]      #working on reader
+            currentCar = currentCar.strip("[")
+            currentCar = currentCar[:len(currentCar)-2]
+            currentCar = currentCar.strip("\n")
             currentCar = currentCar.split(",")
-            for j in range(0,len(currentCar)):
-                temp4 = bool(currentCar[j])
-                level.append(temp4)
-            cars.append(Car(0, level, calls, 0.0, i))
+            levels = []
+            for level in currentCar:
+                levels.append(eval(level))
+            cars.append(Car(0, levels, calls, 0.0, i))
     return cars
