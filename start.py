@@ -96,7 +96,7 @@ def ConfigCars(levels):
     cars = []
     calls = []
     for i in range(0,NrOCars):
-        cars.append(Car(0,level, calls, 0.0 , i))
+        cars.append(Car(0,level, calls, 0.0 , i , "st"))
         print(f"does the car nr. {i} stop at all the floors?(y/n)")
         temp = input()
         temp.lower()
@@ -124,7 +124,7 @@ def initCars(levels):
         calls = []
         currentCar = cr.readline(-1)
         if currentCar == "all":
-            cars.append(Car(0, ["all"], calls, 0.0, i))
+            cars.append(Car(0, ["all"], calls, 0.0, i , "st"))
         else:
             currentCar = currentCar.strip("[")
             currentCar = currentCar[:len(currentCar)-2]
@@ -133,5 +133,5 @@ def initCars(levels):
             levels = []
             for level in currentCar:
                 levels.append(eval(level))
-            cars.append(Car(0, levels, calls, 0.0, i))
+            cars.append(Car(0, levels, calls, 0.0, i , "st"))
     return cars

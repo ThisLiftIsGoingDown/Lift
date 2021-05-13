@@ -1,12 +1,13 @@
 from Levels import Level
 
 class Car():
-    def __init__(self, pos, floors, calls , speed , carnr):
+    def __init__(self, pos, floors, calls , speed , carnr, dir):
         self.floors = floors
         self.calls = calls
         self.pos = pos
         self.speed = speed
         self.carnr = carnr
+        self.dir = dir
     def erase_floors(self):
         g =[]
         self.floors = g
